@@ -13,13 +13,13 @@ public class User implements Serializable {
     @GeneratedValue
     private Long id;
     private String name;
-    private String adress;
+    private String address;
     @Column(unique = true)
     private String email;
 
-    public User(String name, String adress, String email) {
+    public User(String name, String address, String email) {
         this.name = name;
-        this.adress = adress;
+        this.address = address;
         this.email = email;
     }
 
@@ -28,7 +28,7 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", adress='" + adress + '\'' +
+                ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
@@ -49,12 +49,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {

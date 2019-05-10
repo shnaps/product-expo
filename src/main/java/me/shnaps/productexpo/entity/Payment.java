@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class Payment implements Serializable {
@@ -14,11 +14,11 @@ public class Payment implements Serializable {
     private Long id;
     @Column(unique = true)
     private String cardNumber;
-    private Date expireDate;
+    private LocalDateTime expireDate;
     private Integer cvv;
     private String paymentAddress;
 
-    public Payment(String cardNumber, Date expireDate, Integer cvv, String paymentAddress) {
+    public Payment(String cardNumber, LocalDateTime expireDate, Integer cvv, String paymentAddress) {
         this.cardNumber = cardNumber;
         this.expireDate = expireDate;
         this.cvv = cvv;
@@ -52,11 +52,11 @@ public class Payment implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public Date getExpireDate() {
+    public LocalDateTime getExpireDate() {
         return expireDate;
     }
 
-    public void setExpireDate(Date expireDate) {
+    public void setExpireDate(LocalDateTime expireDate) {
         this.expireDate = expireDate;
     }
 
