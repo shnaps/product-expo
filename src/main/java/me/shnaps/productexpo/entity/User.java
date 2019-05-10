@@ -1,4 +1,4 @@
-package me.shnaps.productexpo.entity.user;
+package me.shnaps.productexpo.entity;
 
 import org.springframework.data.annotation.Id;
 

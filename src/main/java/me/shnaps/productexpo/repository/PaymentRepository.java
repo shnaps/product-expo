@@ -1,6 +1,6 @@
 package me.shnaps.productexpo.repository;
 
-import me.shnaps.productexpo.entity.payment.Payment;
+import me.shnaps.productexpo.entity.Payment;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

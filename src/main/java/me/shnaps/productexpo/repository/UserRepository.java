@@ -1,6 +1,6 @@
 package me.shnaps.productexpo.repository;
 
-import me.shnaps.productexpo.entity.user.User;
+import me.shnaps.productexpo.entity.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

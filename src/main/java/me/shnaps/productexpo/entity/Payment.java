@@ -1,4 +1,4 @@
-package me.shnaps.productexpo.entity.payment;
+package me.shnaps.productexpo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
