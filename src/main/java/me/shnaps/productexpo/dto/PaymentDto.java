@@ -1,11 +1,15 @@
 package me.shnaps.productexpo.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import me.shnaps.productexpo.entity.Payment;
 
 import java.time.LocalDateTime;
 
 public class PaymentDto {
     private String cardNumber;
+    //not properly working
+    @JsonFormat(shape = JsonFormat.Shape.STRING,
+            pattern = "dd-MM-yyyy")
     private LocalDateTime expireDate;
     private Integer cvv;
     private String paymentAddress;
@@ -53,6 +57,7 @@ public class PaymentDto {
     }
 
     public Payment transform() {
-        return new Payment(cardNumber, expireDate, cvv, paymentAddress);
+        //problem with jackson and dates
+        return new Payment(cardNumber, null, cvv, paymentAddress);
     }
 }

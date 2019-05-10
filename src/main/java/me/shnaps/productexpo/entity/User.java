@@ -14,6 +14,10 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private String address;
+
+    public User() {
+    }
+
     @Column(unique = true)
     private String email;
 
