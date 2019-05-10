@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class OperationsController {
-    private PaymentService paymentService;
-    private UserService userService;
+    private final PaymentService paymentService;
+    private final UserService userService;
 
     public OperationsController(@NonNull PaymentService paymentService, @NonNull UserService userService) {
         this.paymentService = paymentService;
