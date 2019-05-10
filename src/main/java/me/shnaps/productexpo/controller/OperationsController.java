@@ -1,5 +1,7 @@
 package me.shnaps.productexpo.controller;
 
+import me.shnaps.productexpo.dto.PaymentDto;
+import me.shnaps.productexpo.dto.UserDto;
 import me.shnaps.productexpo.entity.Payment;
 import me.shnaps.productexpo.entity.User;
 import me.shnaps.productexpo.service.PaymentService;
@@ -22,12 +24,14 @@ public class OperationsController {
     }
 
     @PostMapping("/user")
-    public User createUser(@RequestBody User user) {
-        return userService.save(user);
+    public User createUser(@RequestBody UserDto user) {
+        User finalUser = user.transform();
+        return userService.save(finalUser);
     }
 
     @PostMapping("/payment")
-    public Payment createPayment(@RequestBody Payment payment) {
-        return paymentService.save(payment);
+    public Payment createPayment(@RequestBody PaymentDto payment) {
+        Payment finalPayment = payment.transform();
+        return paymentService.save(finalPayment);
     }
 }
