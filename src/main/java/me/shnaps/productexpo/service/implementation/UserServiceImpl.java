@@ -1,4 +1,4 @@
-package me.shnaps.productexpo.service.impl;
+package me.shnaps.productexpo.service.implementation;
 
 import me.shnaps.productexpo.entity.User;
 import me.shnaps.productexpo.repository.UserRepository;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImplementation implements UserService {
+public class UserServiceImpl implements UserService {
     @Autowired
     @Qualifier("userRepository")
     private UserRepository repository;

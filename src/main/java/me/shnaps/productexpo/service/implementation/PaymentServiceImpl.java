@@ -1,4 +1,4 @@
-package me.shnaps.productexpo.service.impl;
+package me.shnaps.productexpo.service.implementation;
 
 import me.shnaps.productexpo.entity.Payment;
 import me.shnaps.productexpo.repository.PaymentRepository;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PaymentServiceImplementation implements PaymentService {
+public class PaymentServiceImpl implements PaymentService {
     @Autowired
     @Qualifier("paymentRepository")
     private PaymentRepository repository;
