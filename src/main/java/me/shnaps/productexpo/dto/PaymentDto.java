@@ -3,7 +3,6 @@ package me.shnaps.productexpo.dto;
 import me.shnaps.productexpo.entity.Payment;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class PaymentDto {
     private String cardNumber;
