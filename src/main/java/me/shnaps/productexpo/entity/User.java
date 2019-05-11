@@ -1,6 +1,8 @@
 package me.shnaps.productexpo.entity;
 
 
+import me.shnaps.productexpo.dto.UserDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -67,5 +69,9 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserDto transformToDto() {
+        return new UserDto(this.name, this.address, this.email);
     }
 }

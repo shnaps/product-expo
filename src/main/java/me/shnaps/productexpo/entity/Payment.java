@@ -1,5 +1,7 @@
 package me.shnaps.productexpo.entity;
 
+import me.shnaps.productexpo.dto.PaymentDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -79,4 +81,7 @@ public class Payment implements Serializable {
         this.paymentAddress = paymentAddress;
     }
 
+    public PaymentDto transformToDto() {
+        return new PaymentDto(this.cardNumber, this.expireDate, this.cvv, this.paymentAddress);
+    }
 }
