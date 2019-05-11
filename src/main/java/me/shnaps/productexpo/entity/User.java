@@ -1,12 +1,12 @@
 package me.shnaps.productexpo.entity;
 
-
 import me.shnaps.productexpo.dto.UserDto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -14,7 +14,9 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    @Size(max = 25, min = 6, message = "Name should be between 6 and 25 symbols")
     private String name;
+    @Size(min = 10, max = 50, message = "Address must be between 10 and 50 symbols")
     private String address;
 
     public User() {
