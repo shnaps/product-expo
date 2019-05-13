@@ -1,6 +1,7 @@
 package me.shnaps.productexpo.entity;
 
 import me.shnaps.productexpo.dto.UserDto;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,10 +15,13 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    @NonNull
     @Size(max = 25, min = 6, message = "Name should be between 6 and 25 symbols")
     private String name;
+    @NonNull
     @Size(min = 10, max = 50, message = "Address must be between 10 and 50 symbols")
     private String address;
+    @NonNull
     @Column(unique = true)
     private String email;
 
