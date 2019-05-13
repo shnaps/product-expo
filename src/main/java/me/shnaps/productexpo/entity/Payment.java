@@ -19,12 +19,12 @@ public class Payment implements Serializable {
     private Long id;
     @Column(unique = true)
     @NotBlank(message = "Card number can't be null")
-    @Pattern(regexp = "\\n{16}",  message = "Card number must be 16 symbols")
+    @Pattern(regexp = "\\n{16}", message = "Card number must be 16 symbols")
     private String cardNumber;
     @NotBlank(message = "Expire date can't be null")
     private LocalDate expireDate;
     @NotBlank(message = "CVV can't be null")
-    @Pattern(regexp = "\\n{3}",  message = "CVV  must be 3 symbols")
+    @Pattern(regexp = "\\n{3}", message = "CVV  must be 3 symbols")
     private Integer cvv;
     @Size(min = 10, max = 50, message = "Payment address must be between 10 and 50 symbols")
     private String paymentAddress;

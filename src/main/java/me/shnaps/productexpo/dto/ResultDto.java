@@ -1,7 +1,5 @@
 package me.shnaps.productexpo.dto;
 
-import me.shnaps.productexpo.entity.User;
-
 public class ResultDto {
     private PaymentDto paymentDto;
     private UserDto userDto;

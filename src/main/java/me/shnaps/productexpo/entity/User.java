@@ -18,12 +18,11 @@ public class User implements Serializable {
     private String name;
     @Size(min = 10, max = 50, message = "Address must be between 10 and 50 symbols")
     private String address;
+    @Column(unique = true)
+    private String email;
 
     public User() {
     }
-
-    @Column(unique = true)
-    private String email;
 
     public User(String name, String address, String email) {
         this.name = name;
