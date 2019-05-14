@@ -2,6 +2,8 @@ package me.shnaps.productexpo.controller;
 
 import me.shnaps.productexpo.dto.PaymentDto;
 import me.shnaps.productexpo.entity.Payment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +23,13 @@ public class PaymentController {
     }
 
     @PostMapping("/payment")
-    public String createPayment(@Valid @RequestBody PaymentDto payment) {
+    public ResponseEntity createPayment(@Valid @RequestBody PaymentDto payment) {
         setFinalPayment(payment.transform());
-        return "Payment cached";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Payment with card # *");
+        String cardNumber = finalPayment.getCardNumber();
+        stringBuilder.append(cardNumber.substring(cardNumber.length() - 4));
+        stringBuilder.append(" cached");
+        return new ResponseEntity(stringBuilder.toString(), HttpStatus.OK);
     }
 }
