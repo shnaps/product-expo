@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class PaymentDto {
     @NotNull(message = "Card number can't be null")
@@ -64,5 +65,21 @@ public class PaymentDto {
 
     public Payment transform() {
         return new Payment(cardNumber, expireDate, cvv, paymentAddress);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PaymentDto that = (PaymentDto) o;
+        return Objects.equals(cardNumber, that.cardNumber) &&
+                Objects.equals(expireDate, that.expireDate) &&
+                Objects.equals(cvv, that.cvv) &&
+                Objects.equals(paymentAddress, that.paymentAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardNumber, expireDate, cvv, paymentAddress);
     }
 }

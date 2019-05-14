@@ -5,6 +5,7 @@ import me.shnaps.productexpo.entity.User;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 public class UserDto {
     @NotNull(message = "Name can't be null")
@@ -52,5 +53,20 @@ public class UserDto {
 
     public User transform() {
         return new User(name, address, email);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDto userDto = (UserDto) o;
+        return Objects.equals(name, userDto.name) &&
+                Objects.equals(address, userDto.address) &&
+                Objects.equals(email, userDto.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, address, email);
     }
 }
