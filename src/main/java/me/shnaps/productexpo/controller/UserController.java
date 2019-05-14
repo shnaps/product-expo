@@ -10,11 +10,19 @@ import javax.validation.Valid;
 
 @RestController
 public class UserController {
-    public static User finalUser;
+    private static User finalUser;
+
+    public static User getFinalUser() {
+        return finalUser;
+    }
+
+    public static void setFinalUser(User finalUser) {
+        UserController.finalUser = finalUser;
+    }
 
     @PostMapping("/user")
     public String createUser(@Valid @RequestBody UserDto user) {
-        finalUser = user.transform();
+        setFinalUser(user.transform());
         return "User cached";
     }
 }
