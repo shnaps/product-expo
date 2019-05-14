@@ -1,13 +1,12 @@
 package me.shnaps.productexpo.entity;
 
 import me.shnaps.productexpo.dto.PaymentDto;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -19,15 +18,15 @@ public class Payment implements Serializable {
     @GeneratedValue
     private Long id;
     @Column(unique = true)
-    @NonNull
+    @NotNull(message = "Card number can't be null")
     @Pattern(regexp = "\\n{16}", message = "Card number must be 16 symbols")
     private String cardNumber;
-    @NonNull()
+    @NotNull(message = "Expire date can't be null")
     private LocalDate expireDate;
-    @NonNull
+    @NotNull(message = "CVV can't be null")
     @Pattern(regexp = "\\n{3}", message = "CVV  must be 3 symbols")
     private Integer cvv;
-    @NonNull
+    @NotNull(message = "Payment can't be null")
     @Size(min = 10, max = 50, message = "Payment address must be between 10 and 50 symbols")
     private String paymentAddress;
 
