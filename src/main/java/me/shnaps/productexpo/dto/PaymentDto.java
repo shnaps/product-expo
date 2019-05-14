@@ -9,13 +9,13 @@ import java.time.LocalDate;
 
 public class PaymentDto {
     @NotNull(message = "Card number can't be null")
-    @Pattern(regexp = "\\n{16}", message = "Card number must be 16 symbols")
+    @Pattern(regexp = "\\d{16}", message = "Card number must be 16 symbols")
     private String cardNumber;
     @NotNull(message = "Expire date can't be null")
     private LocalDate expireDate;
     @NotNull(message = "CVV can't be null")
-    @Pattern(regexp = "\\n{3}", message = "CVV  must be 3 symbols")
-    private Integer cvv;
+    @Pattern(regexp = "\\d{3}", message = "CVV  must be 3 symbols")
+    private String cvv;
     @NotNull(message = "Payment can't be null")
     @Size(min = 10, max = 50, message = "Payment address must be between 10 and 50 symbols")
     private String paymentAddress;
@@ -23,7 +23,7 @@ public class PaymentDto {
     public PaymentDto() {
     }
 
-    public PaymentDto(String cardNumber, LocalDate expireDate, Integer cvv, String paymentAddress) {
+    public PaymentDto(String cardNumber, LocalDate expireDate, String cvv, String paymentAddress) {
         this.cardNumber = cardNumber;
         this.expireDate = expireDate;
         this.cvv = cvv;
@@ -46,11 +46,11 @@ public class PaymentDto {
         this.expireDate = expireDate;
     }
 
-    public Integer getCvv() {
+    public String getCvv() {
         return cvv;
     }
 
-    public void setCvv(Integer cvv) {
+    public void setCvv(String cvv) {
         this.cvv = cvv;
     }
 
